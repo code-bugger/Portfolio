@@ -17,15 +17,7 @@
 
         .hero {
             background-color: #ffffff;
-            height: 90vh;
-        }
-
-        /* Media query for mobile devices */
-        @media (max-width: 768px) {
-            .hero {
-                height: 70vh;
-            }
-            
+            height: 70vh;
         }
 
         .navbar-nav .nav-link.active {
@@ -115,14 +107,15 @@
     <!-- navbar end -->
     <!-- Hero Section -->
     <section class="hero section d-flex align-items-center" id="hero">
-        <div class="container text-center">
+        <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
                     <h1>&lt;&gt; Hello, I'm<br>
                         Shiv Shankar Mahato &lt;/&gt;
                     </h1>
                     <p class="fs-3"><strong class="typed" data-typed-items="Web Developer, Web Designer"></strong></p>
                 </div>
+
                 <div class="col-md-6">
                     <img src="/assets/slap-through-computer.gif" alt="img" class="img-fluid" />
                 </div>
