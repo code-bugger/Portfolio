@@ -17,7 +17,14 @@
 
         .hero {
             background-color: #ffffff;
-            height: 70vh;
+            height: 80vh;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding-top: 10px;
+            }
         }
 
         .navbar-nav .nav-link.active {
@@ -108,12 +115,15 @@
     <!-- Hero Section -->
     <section class="hero section d-flex align-items-center" id="hero">
         <div class="container">
-            <div class="row">
+            <div class="row gy-4">
                 <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
                     <h1>&lt;&gt; Hello, I'm<br>
                         Shiv Shankar Mahato &lt;/&gt;
                     </h1>
                     <p class="fs-3"><strong class="typed" data-typed-items="Web Developer, Web Designer"></strong></p>
+                    <a href="assets/CV (Shiv Shankar).pdf" download class="btn btn-primary mt-3">
+                        <span class="fs-5">Download CV</span>
+                    </a>
                 </div>
 
                 <div class="col-md-6">
