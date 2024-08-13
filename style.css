@@ -1,0 +1,73 @@
+section {
+    scroll-margin-top: 75px;
+    /* Adjust this value based on your navbar height */
+}
+
+.hero {
+    background-color: #ffffff;
+    height: 85vh;
+    /* Default height */
+}
+
+@media (max-width: 1024px),
+(max-width: 768px) {
+    .hero {
+        height: auto;
+        padding-top: 20px;
+    }
+}
+
+
+
+.navbar-nav .nav-link.active {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.underline {
+    width: 50px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 10px auto;
+}
+
+.card {
+    height: 400px;
+}
+
+.info-item i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #c7bfcf;
+}
+
+.info-item i:hover {
+    border-color: #007bff;
+    color: #007bff;
+
+}
+
+#scroll-top {
+    display: none;
+    bottom: 2px;
+    right: 2px;
+    background: #0d6efd;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #c7bfcf;
+    z-index: 1;
+}
+
+#scroll-top.show {
+    position: fixed;
+}
+
+#scroll-top:hover {
+    background: #0bb8d7;
+}

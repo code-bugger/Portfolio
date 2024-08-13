@@ -14,81 +14,11 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" />
-    <style>
-        section {
-            scroll-margin-top: 75px;
-            /* Adjust this value based on your navbar height */
-        }
-
-        .hero {
-            background-color: #ffffff;
-            height: 85vh;
-            /* Default height */
-        }
-
-        @media (max-width: 1024px),
-        (max-width: 768px) {
-            .hero {
-                height: auto;
-                padding-top: 20px;
-            }
-        }
-
-
-
-        .navbar-nav .nav-link.active {
-            color: #000000;
-            text-decoration: underline;
-        }
-
-        .underline {
-            width: 50px;
-            height: 3px;
-            background-color: #007bff;
-            margin: 10px auto;
-        }
-
-        .card {
-            height: 400px;
-        }
-
-        .info-item i {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid #c7bfcf;
-        }
-
-        .info-item i:hover {
-            border-color: #007bff;
-            color: #007bff;
-
-        }
-
-        #scroll-top {
-            display: none;
-            bottom: 2px;
-            right: 2px;
-            background: #0d6efd;
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #c7bfcf;
-            z-index: 1;
-        }
-
-        #scroll-top.show {
-            position: fixed;
-        }
-
-        #scroll-top:hover {
-            background: #0bb8d7;
-        }
-    </style>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- EmailJS Link -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
 </head>
 
 <body>
@@ -406,7 +336,7 @@
                             <p>Koshi Project, Biratnagar-13</p>
                         </div>
                     </div>
-                </div><!-- End Info Item -->
+                </div>
 
                 <div class="col-lg-4">
                     <div class="info-item d-flex align-items-center">
@@ -416,7 +346,7 @@
                             <p>+977 9824380936</p>
                         </div>
                     </div>
-                </div><!-- End Info Item -->
+                </div>
 
                 <div class="col-lg-4 mb-3">
                     <div class="info-item d-flex align-items-center">
@@ -426,25 +356,27 @@
                             <p>shivshankar57412@gmail.com</p>
                         </div>
                     </div>
-                </div><!-- End Info Item -->
+                </div>
             </div>
-
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <!-- Contact Form Start -->
+            <form onsubmit="sendMail(event)">
                 <div class="row gy-4 border my-4 mx-4">
                     <div class="col-md-6">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
                     </div>
 
                     <div class="col-md-6">
-                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email"
+                            required>
                     </div>
 
                     <div class="col-md-12">
-                        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject"
+                            required>
                     </div>
 
                     <div class="col-md-12">
-                        <textarea name="message" class="form-control" rows="6" placeholder="Message"
+                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Message"
                             required></textarea>
                     </div>
 
@@ -490,82 +422,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- OwlCarousel JS CDN Link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script>
-        // Owl initializer
-        $(document).ready(function () {
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 10,
-                nav: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 3
-                    }
-                }
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Bootstrap offcanvas
-            var offcanvasElement = document.getElementById('offcanvasNavbar');
-            var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
-
-            // Close offcanvas when a nav-link is clicked
-            document.querySelectorAll('#offcanvasNavbar .nav-link').forEach(function (navLink) {
-                navLink.addEventListener('click', function () {
-                    offcanvas.hide();
-                });
-            });
-
-            // Navbar active state on scroll
-            let navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            function navbarScrollspy() {
-                let fromTop = window.scrollY + 200;
-
-                navLinks.forEach(link => {
-                    let section = document.querySelector(link.hash);
-
-                    if (
-                        section.offsetTop <= fromTop &&
-                        section.offsetTop + section.offsetHeight > fromTop
-                    ) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
-            window.addEventListener('scroll', navbarScrollspy);
-
-
-            // Initialize Typed.js
-            var options = {
-                strings: document.querySelector('.typed').getAttribute('data-typed-items').split(','),
-                typeSpeed: 100,
-                backSpeed: 50,
-                loop: true
-            };
-            new Typed('.typed', options);
-
-            // Scroll-to-top icon visibility
-            function toggleScrollTopIcon() {
-                let scrollTopIcon = document.getElementById('scroll-top');
-                if (window.scrollY > 100) {
-                    scrollTopIcon.classList.add('show');
-                } else {
-                    scrollTopIcon.classList.remove('show');
-                }
-            }
-            window.addEventListener('scroll', toggleScrollTopIcon);
-
-        });
-    </script>
+    <!-- External JavaScript Link-->
+    <script src="/main.js"></script>
 </body>
 
 </html>
