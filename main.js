@@ -84,6 +84,7 @@ function sendMail(event) {
 
     // Show loading message
     let submitButton = document.querySelector("button[type='submit']");
+    submitButton.disabled = true;
     submitButton.textContent = "Sending...";
 
     let params = {
@@ -99,10 +100,12 @@ function sendMail(event) {
             // Clear the form after successful submission
             event.target.reset();
         })
-        .catch(() => {
-            alert("Failed to send email, please try again.");
+        .catch((error) => {
+            console.error("EmailJS Error:", error);
+            alert("Failed to send email: "+error.text);
         })
         .finally(() => {
+            submitButton.disabled = false;
             submitButton.textContent = "Send Message";
         });
 }
