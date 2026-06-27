@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //EmailJS Code
 (function () {
     emailjs.init({
-        publicKey: "sZ_2ISw8QOv-CVM1d",
+        publicKey: "jyEtxwtl8-2WGzQx4",
     });
 })();
 
@@ -94,7 +94,7 @@ function sendMail(event) {
         message: document.getElementById("message").value,
     };
 
-    emailjs.send("service_m2ajdgd", "template_shfrj0d", params)
+    emailjs.send("service_mdr10n9", "template_b80akpr", params)
         .then(() => {
             alert("Email Sent Successfully!");
             // Clear the form after successful submission
